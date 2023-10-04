@@ -9,6 +9,7 @@ fs.readFile("./files/starter.txt", (err, data) => {
     console.log(data.toString());
 });
 
+
            //or
 
 // const fs = require("fs");
@@ -25,6 +26,8 @@ fs.readFile("./files/lorem.txt", "utf8", (err, data) => {
 });
 
 
+
+
 //Existing uncaugh errors
 process.on("uncaughtException", error => {
     console.error(`there was an uncaught error: ${error}`
@@ -32,3 +35,21 @@ process.on("uncaughtException", error => {
 })
 
 console.log("Hello ....");
+console.log("am still trying to understand this  ....");
+
+
+
+
+//this is to write or or add a file to the existing file.
+fs.writeFile(path.join(__dirname,"files", 'text.txt'), `Here in DLTAfrica it's a new dawn`, (err) => {
+  if(err) throw err;
+  console.log('Write completed');
+})
+
+
+fs.readFile("./files/text.txt", "utf8", (error, data) =>{
+  if (error) throw error;
+  console.log(data);
+})
+
+fs.appendFile(path.join(__dirname,"files", 'text.txt'), 'Tes')
